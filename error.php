@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
-    <title>Login</title>
+    <title>ERROR</title>
     <link href="https://fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
 </head>
@@ -21,17 +21,17 @@
             <button class="switch"><img src="images/twt.png" alt="switch"></button>
         </div>
 
-        <h6>Iniciar Sesión</h6>
+        <h6>ERROR DE INICIO DE SESION</h6>
 
         <form action="controller/inicio.php" method="post">
             
             <div class="textbox">
-                <input type="text" name="username" id="username"  placeholder="Username">
+                <input type="text" placeholder="Username">
                 <span class="check-message hidden">Obligatorio</span>
             </div>
 
             <div class="textbox">
-                <input type="password" name="contrasena" id="contrasena"  placeholder="Contraseña" id="password">
+                <input type="password" name="password" placeholder="Contraseña" id="password">
                 <span class="check-message hidden">Obligatorio</span>
             </div>
 

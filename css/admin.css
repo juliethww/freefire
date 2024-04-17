@@ -1,0 +1,83 @@
+.center{
+    color:rgb(0, 0, 0) ;
+    margin-left: 400px;
+    
+    
+}
+
+body{
+    background-image: url(https://dl.dir.freefiremobile.com/common/web_event/official2.ff.garena.all/202210/ce4825537a9e7c4eadd9f5f1c9085922.jpg); 
+    background-repeat: no-repeat;
+    background-size:100% ;
+}
+nav{
+    height: 100%;
+    width: 220px;
+    background-color: #000000;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    opacity: 0.9;
+    
+}
+.menu{
+    
+    display:contents;
+    justify-content: space-around;
+
+}
+
+.menu > li > a{
+    display: block;
+ padding: 25px 20px;
+ color: white;
+
+ 
+}
+
+.menu > li:hover{
+    background-color: rgb(0, 0, 0);
+}
+
+.menu_ver{
+    position: 16px;
+    display: none;
+    list-style: none;
+    width: 200px;
+    background-color: rgba(65, 65, 65, 0.5);
+
+}
+
+.menu li:hover .menu_ver{
+    display: block;
+}
+.menu_ver li:hover{
+    background-color: rgb(255, 153, 0);
+}
+
+.menu_ver li a{
+    display: block;
+    color: white;
+    padding: 15px 15px 15px 20px;
+}
+li{
+    font-size: 22px;
+}
+
+.menu-lateral {
+    background-color: #f2f2f2;
+    width: 200px;
+    padding: 20px;
+  }
+  
+  .menu-lateral li {
+    list-style-type: none;
+    margin-bottom: 10px;
+  }
+  
+  .menu-lateral li:hover {
+    background-color: #ccc;
+  }

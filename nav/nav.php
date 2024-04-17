@@ -17,30 +17,33 @@
   <body>
     <header class="header">
       <nav class="nav">
-        <a href="#" class="logo nav-link">Logo</a>
+        <a href="#" class="logo nav-link">FREE FIRE</a>
         <button class="nav-toggle" aria-label="Abrir menú">
           <i class="fas fa-bars"></i>
         </button>
         <ul class="nav-menu">
           <li class="nav-menu-item">
-            <a href="#" class="nav-menu-link nav-link">Blog</a>
+            <a href="#" class="nav-menu-link nav-link">Personajes</a>
           </li>
           <li class="nav-menu-item">
-            <a href="#" class="nav-menu-link nav-link">Videos</a>
+            <a href="mapas.php" class="nav-menu-link nav-link">Mapas</a>
           </li>
           <li class="nav-menu-item">
-            <a href="#" class="nav-menu-link nav-link">Sobre mí</a>
+            <a href="#" class="nav-menu-link nav-link">Armas</a>
+          </li>
+          <li class="nav-menu-item">
+            <a href="#" class="nav-menu-link nav-link">Sala</a>
           </li>
           <li class="nav-menu-item">
             <a href="#" class="nav-menu-link nav-link nav-menu-link_active"
-              >Contacto</a
+              >Volver</a
             >
           </li>
         </ul>
       </nav>
     </header>
     <main>
-      <h1>Responsive Navbar</h1>
+    
     </main>
   </body>
 </html>

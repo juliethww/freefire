@@ -1,5 +1,5 @@
 <?php
-require_once("conexion/conexion.php");
+require_once("../../conexion/conexion.php");
 $db = new Database();
 $con =$db->conectar();
 
@@ -9,6 +9,10 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "formreg")) {
     $username= $_POST['username'];
     $contrasena= $_POST['contrasena'];
     $avatar= $_POST['avatar'];
+    $nivel= $_POST['nivel'];
+    $puntos= $_POST['puntos'];
+    $id_estado= $_POST['id_estado'];
+    
     
     // Establecer automáticamente el rol de jugador
     $tip_user = 2; // ID de jugador
@@ -34,14 +38,14 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "formreg")) {
         echo '<script>window.location="registro.php"</script>';
     } else if($fila){
         echo '<script>alert ("USUARIO YA REGISTRADO"); </script>';
-        echo '<script>window.location="registro.php"</script>';
+        echo '<script>window.location="regist_juga.php"</script>';
     } else {
         $pass_cifrado=password_hash($contrasena,PASSWORD_DEFAULT,array("pass"=>12));
-        $insertSQL = $con->prepare ("INSERT INTO usuarios(nombre,correo,username,contrasena,avatar,id_tip_user) 
-        VALUES ('$nombre','$correo', '$username', '$pass_cifrado','$avatar','$tip_user')");
+        $insertSQL = $con->prepare ("INSERT INTO usuarios(nombre,correo,username,contrasena,avatar,id_tip_user,nivel,puntos,id_estado) 
+        VALUES ('$nombre','$correo', '$username', '$pass_cifrado','$avatar','$tip_user','$nivel','$puntos','$id_estado')");
         $insertSQL->execute();
         echo '<script>alert ("registro exitoso"); </script>';
-        echo '<script>window.location="index.php"</script>';
+        echo '<script>window.location="../formulario/formulario.php"</script>';
     }
 }
 ?>
@@ -51,23 +55,25 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "formreg")) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/registro.css">
+        <link rel="stylesheet" href="../../css/regis.css">
         <title>Registrarse</title>
         <link href="https://fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
     </head>
-    <body style="background-image: url('images/fondo1.jpg');">   
+    
+    <body style="background-image: url('images/fondo1.jpg');">  
+     
         <div class="login-form">
             
-            <div class="logo"><img src="images/free4.png" alt="logo"></div>
+            <div class="logo"><img src="../../imagenes/free4.png" alt="logo"></div>
+            <form  method="POST" autocomplete="off" class="formulario" id="formulario">
+<input type="submit" value="Regresar" name="regresar" id="regresar">
+<?php 
+if (isset($_POST['regresar'])){
+    header('Location: ../formulario/formulario.php');
 
-            <div class="social-media">
-                <button class="fb"><img src="images/fb.png" alt="facebook"></button>
-                <button class="google"><img src="images/google.png" alt="google"></button>
-                <button class="ps"><img src="images/vk5.png" alt="ps"></button>
-                <button class="xbox"><img src="images/apple.png" alt="xbox"></button>
-                <button class="switch"><img src="images/twt.png" alt="switch"></button>
-            </div>
+}
+?>
 
             <h6>Registrese</h6>
 
@@ -107,14 +113,31 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "formreg")) {
     </select>
     <span class="check-message hidden">Obligatorio</span>
 </div>
+<br>
+<div class="textbox">
+    <input type="text" name="nivel" placeholder="Nivel">
+    <span class="check-message hidden">Obligatorio</span>
+</div>
+<div class="textbox">
+    <input type="text" name="puntos" placeholder="puntos">
+    <span class="check-message hidden">Obligatorio</span>
+</div>
+
+<div class="textbox">
+<select class="textbox" name="id_estado">
+							<?php
+							$control = $con->prepare("SELECT * FROM estado WHERE id_estado BETWEEN 1 AND 5");
+							$control->execute();
+							while ($fila = $control->fetch(PDO::FETCH_ASSOC)) {
+								echo "<option value='" . $fila['id_estado'] . "'>" . $fila['estado'] . "</option>";
+							}
+							?>
+						</select>
+</div>
 
 <input type="submit" value="Registrarse" name="inicio" class="login-btn">
 <input type="hidden" name="MM_insert" value="formreg">
 
-            <div class="dont-have-account">
-            ¿Tienes una Cuenta?
-                <a href="index.php">Inicia Sesión</a>
-            </div>
 
             <div class="name">
                 ~ Julian Daniel Andrea ~
